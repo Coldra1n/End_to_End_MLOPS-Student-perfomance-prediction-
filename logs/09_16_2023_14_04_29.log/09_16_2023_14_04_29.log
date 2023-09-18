@@ -1,0 +1,14 @@
+[ 2023-09-16 14:04:29,997 ] 148 numexpr.utils - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[ 2023-09-16 14:04:29,997 ] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[ 2023-09-16 14:04:31,881 ] 29 root - INFO - Entered the data ingestion method or component
+[ 2023-09-16 14:04:31,893 ] 32 root - INFO - Read the dataset as dataframe
+[ 2023-09-16 14:04:31,900 ] 38 root - INFO - Train test split initiated
+[ 2023-09-16 14:04:31,908 ] 45 root - INFO - Inmgestion of the data iss completed
+[ 2023-09-16 14:04:31,925 ] 82 root - INFO - Read train and test data completed
+[ 2023-09-16 14:04:31,926 ] 84 root - INFO - Obtaining preprocessing object
+[ 2023-09-16 14:04:31,926 ] 58 root - INFO - Categorical columns: ['gender', 'race_ethnicity', 'parental_level_of_education', 'lunch', 'test_preparation_course']
+[ 2023-09-16 14:04:31,926 ] 59 root - INFO - Numerical columns: ['writing_score', 'reading_score']
+[ 2023-09-16 14:04:31,927 ] 97 root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[ 2023-09-16 14:04:31,944 ] 109 root - INFO - Saved preprocessing object.
+[ 2023-09-16 14:04:31,946 ] 33 root - INFO - Split training and test input data
+[ 2023-09-16 14:05:33,190 ] 102 root - INFO - Best found model on both training and testing dataset
