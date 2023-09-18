@@ -1,4 +1,8 @@
 import sys
+sys.path.append('C:\\Users\\Nick\\Desktop\\23\\mlproject\\src') # unco
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+
 from dataclasses import dataclass
 
 import numpy as np 
@@ -24,7 +28,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         '''
-        This function si responsible for data trnasformation
+        The function is responsible for data transformation
         
         '''
         try:

@@ -1,5 +1,10 @@
 import os
 import sys
+
+sys.path.append('C:\\Users\\Nick\\Desktop\\23\\mlproject\\src') # unco
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+
 from dataclasses import dataclass
 
 from catboost import CatBoostRegressor
@@ -8,6 +13,12 @@ from sklearn.ensemble import (
     GradientBoostingRegressor,
     RandomForestRegressor,
 )
+from sklearn.svm import SVR
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.linear_model import ElasticNet
+#from sklearn.linear_model import BayesianRidge
+#from lightgbm import LGBMRegressor
+
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
@@ -45,6 +56,13 @@ class ModelTrainer:
                 "XGBRegressor": XGBRegressor(),
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor(),
+                #"LGBMRegressor": LGBMRegressor(),
+                #"BayesianRidge": BayesianRidge(),
+                "ElasticNet": ElasticNet(),
+                "Ridge": Ridge(),
+                "Lasso": Lasso(),
+                "SVR": SVR(),
+
             }
             params={
                 "Decision Tree": {
@@ -80,6 +98,34 @@ class ModelTrainer:
                     'learning_rate':[.1,.01,0.5,.001],
                     # 'loss':['linear','square','exponential'],
                     'n_estimators': [8,16,32,64,128,256]
+                },
+                #"LGBMRegressor": {
+                    #'learning_rate': [0.01, 0.05, 0.1],
+                    #'n_estimators': [8,16,32,64,128,256],
+                    #'num_leaves': [31, 62],
+                    #'subsample': [0.6, 0.7, 0.8, 0.9],
+                    #'colsample_bytree': [0.6, 0.7, 0.8, 0.9]
+                #},
+                #" BayesianRidge": {
+                 #   'alpha_1': [1e-6, 1e-5, 1e-4],
+                  #  'alpha_2': [1e-6, 1e-5, 1e-4],
+                   # 'lambda_1': [1e-6, 1e-5, 1e-4],
+                    #'lambda_2': [1e-6, 1e-5, 1e-4]
+                #},
+                "ElasticNet": {
+                    'alpha': [0.1, 0.5, 1, 1.5, 2],
+                    'l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9]
+                },
+                 "Ridge": {
+                    'alpha': [0.1, 0.5, 1, 1.5, 2]
+                },
+                 "Lasso": {
+                    'alpha': [0.1, 0.5, 1, 1.5, 2]
+                },
+                 "SVR": {
+                    'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
+                    'C': [0.1, 1, 10, 100],
+                    'epsilon': [0.01, 0.1, 0.5, 1, 2]
                 }
                 
             }
@@ -109,7 +155,7 @@ class ModelTrainer:
             predicted=best_model.predict(X_test)
 
             r2_square = r2_score(y_test, predicted)
-            return r2_square
+            return best_model_name, r2_square
             
 
 
