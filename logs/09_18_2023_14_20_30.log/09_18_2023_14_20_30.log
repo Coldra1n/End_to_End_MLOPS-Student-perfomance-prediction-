@@ -1,0 +1,37 @@
+[ 2023-09-18 14:20:32,695 ] 224 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.25:5000
+[ 2023-09-18 14:20:32,695 ] 224 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-09-18 14:22:09,322 ] 224 werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 14:22:09] "GET / HTTP/1.1" 200 -
+[ 2023-09-18 14:22:09,837 ] 224 werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 14:22:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-09-18 14:22:51,582 ] 224 werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 14:22:51] "GET /predictdata HTTP/1.1" 200 -
+[ 2023-09-18 14:23:29,927 ] 1741 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "C:\Users\Nick\Desktop\23\mlproject\src\pipeline\predict_pipeline.py", line 13, in predict
+    model_path=os.path.join("artifacts","model.pkl")
+               ^^
+NameError: name 'os' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Nick\ANACONDA\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\ANACONDA\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\ANACONDA\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\ANACONDA\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\Desktop\23\mlproject\app.py", line 39, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\Desktop\23\mlproject\src\pipeline\predict_pipeline.py", line 24, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\Nick\Desktop\23\mlproject\src\pipeline\predict_pipeline.py] line number [13] error message[name 'os' is not defined]
+[ 2023-09-18 14:23:29,988 ] 224 werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 14:23:29] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -
