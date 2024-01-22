@@ -1,14 +1,14 @@
 ## End-to-End Student Performance Score prediction
 
 ## Summary
-First, we started by defining our problem statement, looking into the algorithms we were going to use and the regression implementation pipeline. Then we moved on to practically implementing the identification and regression algorithms like Linear Regression, Lasso, K-Neighbors Regressor, Decision Tree, Random Forest Regressor, XGBRegressor, CatBoosting Regressor, and AdaBoost Regressor. Moving forward, we compared the performances of these models. Lastly, we built a Linear regression model that proved that it works best for student performance prediction problems.
+First, we started by defining our problem statement, looking into the algorithms we were going to use and the regression implementation pipeline. Then we moved on to practically implementing the identification and regression algorithms like Linear Regression, Lasso, K-Neighbors Regressor, Decision Tree, Random Forest Regressor, XGBRegressor, CatBoosting Regressor, and AdaBoost Regressor. Moving forward, we compared the performances of these models. We built a Linear regression model that proved that it works best for student performance prediction problems. Lastly, we deployed our solution to AWS Cloud.  
 
 *The key takeaways from this  student performance prediction are:*
 
-Identification of student performance prediction is important for many institutions.
-Linear regression gives better accuracy compared to other regression problems.
-Linear regression is the best fit for the problem
-Linear regression provides an accuracy of 88%, giving out the most accurate results.
+- Identification of student performance prediction is important for many institutions.
+- Linear regression gives better accuracy compared to other regression problems.
+- Linear regression is the best fit for the problem
+- Linear regression provides an accuracy of 88%, giving out the most accurate results.
 
 
 ## 1. Overview of the Model
